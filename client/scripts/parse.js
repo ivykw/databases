@@ -4,7 +4,7 @@
 
 var Parse = {
 
-  server: `https://app-hrsei-api.herokuapp.com/api/chatterbox/messages/${window.CAMPUS}`,
+  server: `localhost:3000/classes/messages`,
 
   create: function(message, successCB, errorCB = null) {
 

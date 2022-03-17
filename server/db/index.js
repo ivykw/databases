@@ -26,4 +26,4 @@ dbConnection.end();
 // OR
 // user: 'root', password: 'some_password_you_created_at_install'
 
-
+// export query function
