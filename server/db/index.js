@@ -16,7 +16,7 @@ dbConnection.connect((err) => {
 
 
 
-dbConnection.end();
+// dbConnection.end();
 // Create a database connection and export it from this file.
 // Confirm that the credentials supplied for the connection are correct.
 // On Campus at pairing stations you'll use
@@ -27,3 +27,4 @@ dbConnection.end();
 // user: 'root', password: 'some_password_you_created_at_install'
 
 // export query function
+module.exports = dbConnection; // if buggy, COME BACK HERE just in case

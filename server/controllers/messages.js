@@ -12,19 +12,13 @@ module.exports = {
   get: function (req, res) {
     console.log('req.method: ', req.method);
     res.writeHead(200, {'Content-Type': 'application/json'});
-    const data = models.messages.getAll();
-    res.end(JSON.stringify(data));
+    const data = models.messages.getAll((messages) => {
+      res.end(JSON.stringify(messages));
+    });
 
   }, // a function which handles a get request for all messages
   post: function (req, res) {
-    console.log('req.method: ', req.method);
-    var body = '';
-    req.on ('data', (chunk) => {
-      body += chunk;
-      body = JSON.parse(body);
-      var message = body.text;
-      models.messages.create(message);
-    });
+    models.messages.create(req.body.text);
     res.writeHead(201, {'Content-Type': 'application/json'});
     res.end();
   } // a function which handles posting a message to the database
