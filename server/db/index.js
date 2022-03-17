@@ -1,5 +1,22 @@
 var mysql = require('mysql2');
 
+const dbConnection = mysql.createConnection({
+  user: 'root',
+  password: '',
+  database: 'chat',
+});
+dbConnection.connect((err) => {
+  if (err) {
+    console.log('error establishing connection');
+
+  } else {
+    console.log('connection established successfully');
+  }
+});
+
+
+
+dbConnection.end();
 // Create a database connection and export it from this file.
 // Confirm that the credentials supplied for the connection are correct.
 // On Campus at pairing stations you'll use

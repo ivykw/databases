@@ -9,25 +9,20 @@ module.exports = {
     }
   }, // a function which handles a get request for all messages
   post: function (req, res) {
-
     if (req.method === 'POST') {
-
-
       headers['Content-Type'] = 'application/json';
       var body = '';
       request.on ('data', (chunk) => {
         body += chunk;
         if (!Array.isArray(JSON.parse(body))) {
-          _storage.push(JSON.parse(body));
+          _storage.push(JSON.parse(body)); // need to push to database instead of storage
         } else {
-          statusCode = 400;
-          res.writeHead(statusCode, headers);
+          res.writeHead(400, {'Content-Type': 'application/json'});
           res.end();
         }
       });
-      res.writeHead(201, headers);
+      res.writeHead(201, {'Content-Type': 'application/json'});
       res.end();
-
-
-  } // a function which handles posting a message to the database
-};
+    } // a function which handles posting a message to the database
+  }
+}
