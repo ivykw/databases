@@ -1,3 +1,4 @@
+DROP DATABASE chat;
 CREATE DATABASE chat;
 
 USE chat;
@@ -20,7 +21,7 @@ CREATE TABLE roomnames (
 CREATE TABLE messages (
   /* Describe your table here.*/
   id INT NOT NULL AUTO_INCREMENT,
-  message VARCHAR(50),
+  text VARCHAR(50),
   username_id INT,
   roomname_id INT,
   PRIMARY KEY (id),
